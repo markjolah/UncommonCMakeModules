@@ -19,6 +19,7 @@ include(ProcessorCount)
 ProcessorCount(NUM_PROCS)
 set(INSTALL_COMMAND  @CMAKE_COMMAND@ --build . --target install -- -j${NUM_PROCS})
 
+# CMAKE_EXPORT_NO_PACKAGE_REGISTRY=1 --- Causes the external project not to add itself to the build repository
 ExternalProject_Add(@ExtProjectName@
     GIT_REPOSITORY @ExtProjectURL@
     GIT_TAG master
@@ -27,6 +28,6 @@ ExternalProject_Add(@ExtProjectName@
     SOURCE_DIR @ExtProjectDir@/@CMAKE_BUILD_TYPE@/source
     BINARY_DIR @ExtProjectDir@/@CMAKE_BUILD_TYPE@/build
     INSTALL_DIR @CMAKE_INSTALL_PREFIX@
-    CMAKE_ARGS ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=@CMAKE_BUILD_TYPE@
+    CMAKE_ARGS ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=@CMAKE_BUILD_TYPE@ -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=1
     INSTALL_COMMAND ${INSTALL_COMMAND}
     )
