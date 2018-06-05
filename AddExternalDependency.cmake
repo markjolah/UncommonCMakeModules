@@ -19,7 +19,7 @@
 set(AddExternalDependency_include_path ${CMAKE_CURRENT_LIST_DIR} CACHE INTERNAL "Path of AddExternalDependency.cmake")
 
 macro(add_external_dependency)
-    cmake_parse_arguments(_ExtProject_ "SHARED;STATIC" "NAME;URL;INSTALL_PREFIX;CMAKELISTS_TEMPLATE" "" ${ARGN})
+    cmake_parse_arguments(_ExtProject "SHARED;STATIC" "NAME;URL;INSTALL_PREFIX;CMAKELISTS_TEMPLATE" "" ${ARGN})
     if(NOT _ExtProject_NAME)
         message(FATAL_ERROR "No package name given")
     endif()
