@@ -63,8 +63,14 @@ Unless otherwise noted the find modules are dependency-free and can be copied in
 The toolchains in `Toolchains` sub-directory are mainly intended for use in cross-compiling to a Matlab compatible target arch and GCC version.
 
  * [`Toolchain-x86_64-gcc4_9-linux-gnu`](Toolchains/Toolchain-x86_64-gcc4_9-linux-gnu.cmake)  - Build in a GCC 4.9.x environment.  Required for Matlab R2013b and newer.
-    > export X86_64_GCC4_9_LINUX_GNU_ROOT="/path/to/x86_64-gcc4_9-linux-gnu"
+    ```
+    export X86_64_GCC4_9_LINUX_GNU_ROOT=/path/to/x86_64-gcc4_9-linux-gnu
+    ```
  * [`Toolchain-x86_64-gcc6_5-linux-gnu`](Toolchains/Toolchain-x86_64-gcc6_5-linux-gnu.cmake) - Build in a GCC 4.9.x environment.  Required for Matlab R2013b and newer.
-    > export X86_64_GCC6_5_LINUX_GNU_ROOT="/path/to/x86_64-gcc6_5-linux-gnu"
+    ```
+    export X86_64_GCC6_5_LINUX_GNU_ROOT=/path/to/x86_64-gcc6_5-linux-gnu
+    ```
  * [`Toolchain-MXE-x86_64-w64-mingw32`](Toolchains/Toolchain-MXE-x86_64-w64-mingw32.cmake) - Build for a Win64 target arch with a GCC 4.9.x environment using MXE  Required for Matlab R2013b and newer for Win64 targets.
-    > export MXE_ROOT="path/to/mxe"
+    ```
+    export MXE_ROOT=/path/to/mxe
+    ```
