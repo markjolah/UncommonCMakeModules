@@ -2,7 +2,7 @@
 #
 # Mark J. Olah (mjo@cs.unm DOT edu)
 # Copyright 2019
-# see file: LICENCE
+# see file: LICENSE
 #
 # Enables use of pkg-config for modern CMake namespaced-targets, with cross-compiling awareness.
 #

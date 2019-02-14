@@ -4,7 +4,7 @@
 # Copyright 2014-2017
 # Licensed under the Apache License, Version 2.0
 # https://www.apache.org/licenses/LICENSE-2.0
-# See: LICENCE file
+# See: LICENSE file
 #
 # This tool automatically works to find and copy necessary dependencies to the build or install tree to allow packaging of
 # cross-compiled packages together with their necessary dependencies.   This function works for both the build and install trees.

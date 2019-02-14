@@ -2,7 +2,7 @@
 #
 # Mark J. Olah (mjo@cs.unm DOT edu)
 # Copyright 2019
-# see file: LICENCE
+# see file: LICENSE
 #
 # Find the google profiler library and tcmalloc implementations
 # Provides the GPerfTools::profiler imported target.

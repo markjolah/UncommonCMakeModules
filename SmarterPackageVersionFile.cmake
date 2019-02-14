@@ -4,7 +4,7 @@
 # Copyright 2017-2018
 # Licensed under the Apache License, Version 2.0
 # https://www.apache.org/licenses/LICENSE-2.0
-# See: LICENCE file
+# See: LICENSE file
 #
 # A PackageVersion.cmake file generator that is aware of build types and provided components.  Enables a search of multiple
 # build directories in the CMake user repository each with different incompatible provided component options or

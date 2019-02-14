@@ -2,7 +2,7 @@
 #
 # Mark J. Olah (mjo@cs.unm DOT edu)
 # Copyright 2018
-# see file: LICENCE
+# see file: LICENSE
 #
 # Recognized Components:
 #  CXX11 - Add C++11 support
