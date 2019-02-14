@@ -4,42 +4,9 @@
 # Copyright 2019
 # see file: LICENCE
 #
-# Functions to enable use of pkg-config for modern CMake namespaced-targets, with cross-compiling awareness.
+# Enables use of pkg-config for modern CMake namespaced-targets, with cross-compiling awareness.
 #
 #
-
-#get_pkg_config(ret_var pcname pcflags...)
-# Check if pcname is known to pkg-config
-# Returns:
-#  Boolean: true if ${pcname}.pc file is found by pkg-config).
-# Args:
-#  ret_var: return variable name.
-#  pcname: pkg-config name to look for (.pc file)
-function(check_pkg_config ret_var pcname)
-    execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --exists ${pcname} RESULT_VARIABLE _found)
-    if(_found EQUAL 0)
-        set(${ret_var} True PARENT_SCOPE)
-    else()
-        set(${ret_var} False PARENT_SCOPE)
-    endif()
-endfunction()
-
-#get_pkg_config(ret_var pcname pcflags...)
-# Get the output of pkg-config
-# Args:
-#  ret_var: return variable name
-#  pcname: pkg-config name to look for (.pc file)
-#  pcflags: pkg-config flags to pass
-function(get_pkg_config ret_var pcname)
-    execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} ${ARGN} ${pcname} OUTPUT_VARIABLE _out RESULT_VARIABLE _ret OUTPUT_STRIP_TRAILING_WHITESPACE)
-    if(_ret EQUAL 0)
-        separate_arguments(_out)
-        set(${ret_var} ${_out} PARENT_SCOPE)
-    else()
-        set(${ret_var} "" PARENT_SCOPE)
-    endif()
-endfunction()
-
 # make_pkg_config_target(target_var_name target_name [STATIC] pkg_config_names... )
 # Options:
 #   STATIC - Find static libs.  Will pass --static args to pkg_config
@@ -57,6 +24,42 @@ endfunction()
 #  ${VAR_NAME}_PKGCONFIG_NAME - pkg-config name found under if any.
 #
 #
+
+#Helper:
+#check_pkg_config(ret_var pcname pcflags...)
+# Check if pcname is known to pkg-config
+# Returns:
+#  Boolean: true if ${pcname}.pc file is found by pkg-config).
+# Args:
+#  ret_var: return variable name.
+#  pcname: pkg-config name to look for (.pc file)
+function(check_pkg_config ret_var pcname)
+    execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --exists ${pcname} RESULT_VARIABLE _found)
+    if(_found EQUAL 0)
+        set(${ret_var} True PARENT_SCOPE)
+    else()
+        set(${ret_var} False PARENT_SCOPE)
+    endif()
+endfunction()
+
+#Helper:
+#get_pkg_config(ret_var pcname pcflags...)
+# Get the output of pkg-config
+# Args:
+#  ret_var: return variable name
+#  pcname: pkg-config name to look for (.pc file)
+#  pcflags: pkg-config flags to pass
+function(get_pkg_config ret_var pcname)
+    execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} ${ARGN} ${pcname} OUTPUT_VARIABLE _out RESULT_VARIABLE _ret OUTPUT_STRIP_TRAILING_WHITESPACE)
+    if(_ret EQUAL 0)
+        separate_arguments(_out)
+        set(${ret_var} ${_out} PARENT_SCOPE)
+    else()
+        set(${ret_var} "" PARENT_SCOPE)
+    endif()
+endfunction()
+
+
 function(make_pkg_config_target)
     set(options STATIC DISABLE_PKGCONFIG)
     set(oneValueArgs VAR_NAME NAMESPACE TARGET)

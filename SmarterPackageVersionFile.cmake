@@ -1,4 +1,4 @@
-# WriteSmarterPackageVersionFile.cmake
+# SmarterPackageVersionFile.cmake
 #
 # Mark J. Olah (mjo@cs.unm DOT edu)
 # Copyright 2017-2018
@@ -6,7 +6,9 @@
 # https://www.apache.org/licenses/LICENSE-2.0
 # See: LICENCE file
 #
-# A PackageVersion.cmake file generator that is aware of build types
+# A PackageVersion.cmake file generator that is aware of build types and provided components.  Enables a search of multiple
+# build directories in the CMake user repository each with different incompatible provided component options or
+# build-types (e.g., Debug, Release, etc.).
 #
 # Options:
 # Single Argument Keywords
