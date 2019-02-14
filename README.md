@@ -5,7 +5,7 @@ An assortment of modern CMake Modules to help automate some CMake boiler-plate t
 Copyright: 2013-2019
 Author: Mark J. Olah
 Email: (mjo@cs.unm DOT edu)
-LICENCE: APACHE 2.0, see: [LICENCE.md](LICENCE)
+LICENSE: APACHE 2.0, see: [LICENSE](LICENSE)
 
 ## Using UncommonCMakeModules
 
