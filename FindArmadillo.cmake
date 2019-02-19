@@ -93,8 +93,10 @@ if(NOT TARGET Armadillo::Armadillo)
     set(ARMADILLO_PRIVATE_COMPILE_DEFINITIONS)
 else()
     #Check for components that must agree between multiple armadillo using dependencies
-    if(NOT INT32 IN_LIST Armadillo_FIND_COMPONENTS AND NOT INT64 IN_LIST Armadillo_FIND_COMPONENTS)
-        message(FATAL_ERROR "[FindArmadillo] Neither INT32 nor INT64 are in find components:${ARMADILLO_ENABLED_COMPONENTS}.  Exactly one is required.")
+    if((BLAS IN_LIST Armadillo_FIND_COMPONENTS OR LAPACK IN_LIST Armadillo_FIND_COMPONENTS)
+        AND NOT INT32 IN_LIST Armadillo_FIND_COMPONENTS
+        AND NOT INT64 IN_LIST Armadillo_FIND_COMPONENTS)
+        message(FATAL_ERROR "[FindArmadillo] BLAS or LAPACK are in Armadillo_FIND_COMPONENTS, but neither INT32 nor INT64 are: ${Armadillo_FIND_COMPONENTS}.  Exactly one is required.")
     elseif(INT32 IN_LIST Armadillo_FIND_COMPONENTS AND INT64 IN_LIST Armadillo_FIND_COMPONENTS)
         message(FATAL_ERROR "[FindArmadillo] Both INT32 and INT64 are in find components:${ARMADILLO_ENABLED_COMPONENTS}.  Exactly one is required.")
     endif()
