@@ -81,7 +81,7 @@ if(NOT TARGET Armadillo::Armadillo)
     #No other calls to find_package(Armadillo) set up the target and component lists
     add_library(Armadillo::Armadillo INTERFACE IMPORTED)
     if(${ARMADILLO_VERSION_STRING} VERSION_LESS 9999) #Re-enable once fixed in futrue armadillo
-        set_target_properties(Armadillo::Armadillo PROPERTIES INTERFACE_COMPILE_OPTIONS -Wno-unused-local-typedefs) # Necessary for armadillo 9.200.6 warnings
+        set_target_properties(Armadillo::Armadillo PROPERTIES INTERFACE_COMPILE_OPTIONS $<$<COMPILE_LANGUAGE:CXX>:-Wno-unused-local-typedefs>) # Necessary for armadillo 9.200.6 warnings
     endif()
     set_target_properties(Armadillo::Armadillo PROPERTIES INTERFACE_INCLUDE_DIRECTORIES ${ARMADILLO_INCLUDE_DIR})
     set_property(TARGET Armadillo::Armadillo APPEND PROPERTY INTERFACE_COMPILE_DEFINITIONS $<$<CONFIG:Debug>:ARMA_PRINT_ERRORS> $<$<NOT:$<CONFIG:Debug>>:ARMA_NO_DEBUG>)
