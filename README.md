@@ -2,10 +2,10 @@
 
 An assortment of modern CMake Modules and building blocks to automate CMake boiler-plate tasks, making boring things easier to avoid messing up.   This library has a focus on scientific computing applications, but many general purpose tools also.
 
-Copyright: 2013-2019
-Author: Mark J. Olah
-Email: (mjo@cs.unm DOT edu)
-LICENSE: APACHE 2.0, see: [LICENSE](LICENSE)
+ * Author: Mark J. Olah
+ * Email: (mjo@cs.unm DOT edu)
+ * Copyright: 2013-2019
+ * LICENSE: APACHE 2.0, see: [LICENSE](LICENSE)
 
 ## Using UncommonCMakeModules
 
